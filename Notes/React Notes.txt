@@ -1,0 +1,6 @@
+# Create new Project:
+ 	1. If not what to install "create-react-app" command  globally 
+		- npx create-react-app <project_Name>
+ 	2. way to create React project
+		- npm install create-react-app -g
+		- create-react-app <project _name>
