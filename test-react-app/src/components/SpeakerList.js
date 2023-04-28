@@ -50,17 +50,7 @@ function SpeakerList() {
                 return session.eventYear === eventYear;
               });
             })
-            .map(function (speaker) {
-              return (
-                <Speaker
-                  key={speaker.id}
-                  speaker={speaker}
-                  updateRecord={updateRecord}
-                  insertRecord={insertRecord}
-                  deleteRecord={deleteRecord}
-                />
-              );
-            })}
+            .map(renderSpeaker)}
         </div>
       </ReactPlaceHolder>
     </div>
