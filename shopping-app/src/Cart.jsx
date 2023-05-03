@@ -1,8 +1,11 @@
 import React from "react";
 import useFetchAll from "./services/useFetchAll";
 import Spinner from "./Spinner";
+import { useNavigate } from "react-router-dom";
 
 export default function Cart({ cart, updateQuantity }) {
+  const navigate = useNavigate();
+
   const urls = cart.map((i) => `products/${i.id}`);
   const { data: products, loading, error } = useFetchAll(urls);
 
@@ -11,8 +14,9 @@ export default function Cart({ cart, updateQuantity }) {
     const { price, name, image, skus } = products.find(
       (p) => p.id === parseInt(id)
     );
+    console.log("size: ", skus.find((s) => s.sku === sku));
     const { size } = skus.find((s) => s.sku === sku);
-
+    // const size = 1;
     return (
       <li key={sku} className="cart-item">
         <img src={`/images/${image}`} alt={name} />
@@ -52,6 +56,14 @@ export default function Cart({ cart, updateQuantity }) {
           : `${numItemsInCart} Item${numItemsInCart > 1 ? "s" : ""} in My Cart`}
       </h1>
       <ul>{cart.map(renderItem)}</ul>
+      {numItemsInCart > 0 && (
+        <button
+          className="btn btn-primary"
+          onClick={() => navigate("/checkout")}
+        >
+          Checkout
+        </button>
+      )}
     </section>
   );
 }
