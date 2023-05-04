@@ -11,6 +11,7 @@ export default function useFetchAll(urls) {
       setLoading(false);
       return;
     }
+
     preRef.current = urls;
 
     const promises = urls.map((url) =>

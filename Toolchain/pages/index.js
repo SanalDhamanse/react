@@ -3,7 +3,7 @@ import { useState } from "react";
 const InputElement = () => {
   const [inputText, setInputText] = useState("");
   const [historyList, setHistoryList] = useState([]);
-    
+
   return (
     <div>
       <input

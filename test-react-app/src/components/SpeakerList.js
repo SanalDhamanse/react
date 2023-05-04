@@ -36,6 +36,7 @@ function SpeakerList() {
         className="speakerslist-placeholder"
         ready={requestStatus === REQUEST_STATUS.Success}
       >
+             
         <SpeakerAdd eventYear={eventYear} insertRecord={insertRecord} />
         <div className="row">
           {speakerData
@@ -50,7 +51,17 @@ function SpeakerList() {
                 return session.eventYear === eventYear;
               });
             })
-            .map(renderSpeaker)}
+            .map(function (speaker) {
+              return (
+                <Speaker
+                  key={speaker.id}
+                  speaker={speaker}
+                  updateRecord={updateRecord}
+                  insertRecord={insertRecord}
+                  deleteRecord={deleteRecord}
+                />
+              );
+            })}
         </div>
       </ReactPlaceHolder>
     </div>

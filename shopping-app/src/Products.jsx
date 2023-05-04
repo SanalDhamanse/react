@@ -4,6 +4,7 @@ import Spinner from "./Spinner";
 import useFetch from "./services/useFetch";
 import { Link, useParams } from "react-router-dom";
 import PageNotFound from "./PageNotFound";
+import Slider from "./Slider";
 
 export default function Products() {
   const [size, setSize] = useState("");
@@ -48,12 +49,15 @@ export default function Products() {
           }}
         >
           <option value="">All size</option>
-          
+
           <option value="7">7</option>
           <option value="8">8</option>
           <option value="9">9</option>
         </select>
       </section>
+      <Slider products={products} totalProducts={products.length}>
+
+      </Slider>
       {size && <h2>Found {filterProducts.length} items </h2>}
       <section id="products">{filterProducts.map(renderProduct)}</section>
     </>

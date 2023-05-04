@@ -24,6 +24,11 @@ export default function Header() {
               <b>Cart</b>
             </NavLink>
           </li>
+          <li>
+            <NavLink activeStyle={activeStyle} to="/slider">
+              <b>Slider</b>
+            </NavLink>
+          </li>
         </ul>
       </nav>
     </header>
