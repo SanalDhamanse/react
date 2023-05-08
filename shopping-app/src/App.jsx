@@ -8,7 +8,6 @@ import { Routes, Route } from "react-router-dom";
 import Detail from "./Details";
 import Cart from "./Cart";
 import Checkout from "./Checkout";
-import Slider from "./Slider";
 
 export default function App() {
   const [cart, setCart] = useState(() => {
